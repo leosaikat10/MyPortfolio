@@ -17,6 +17,7 @@
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </nav>
+   <button id="theme-toggle"><i class="fas fa-moon"></i></button>
 </header>
   <section  class="hero">
     <img src="Screenshot (13).png" alt="Profile Picture" />
@@ -82,7 +83,7 @@
 
   <section class="section" id="contact">
     <h3>Contact</h3>
-    <p>Feel free to reach out via email: <a href="mailto:your.email@example.com" style="color: #38bdf8">saikatbiswas24dev@gmail.com</a></p>
+    <p>Feel free to reach out via email: <a href="mailto:your.email@example.com" style="color: var(--accent-color)">saikatbiswas24dev@gmail.com</a></p>
   </section>
  <footer>
   <p>&copy; 2025 Saikat Biswas. All rights reserved.</p>
@@ -95,5 +96,28 @@ saikat-biswas-7aa3282aa" target="_blank"><i class="fab fa-linkedin"></i></a>
     <a href="https://www.instagram.com/saikat.0x/" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
 </footer>
+
+
+
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (localStorage.getItem("theme") === "light") {
+    body.classList.add("light-theme");
+    toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("light-theme");
+    if (body.classList.contains("light-theme")) {
+      toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+      localStorage.setItem("theme", "light");
+    } else {
+      toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+      localStorage.setItem("theme", "dark");
+    }
+  });
+</script>
 </body>
 </html>
