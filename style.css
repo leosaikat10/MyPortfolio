@@ -353,4 +353,9 @@ footer {
     font-size: 1.4rem;
   }
 }
+@media (max-width: 768px) {
+  .edu-card {
+    text-align: center;
+  }
+}
 
