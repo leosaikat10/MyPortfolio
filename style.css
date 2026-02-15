@@ -359,3 +359,20 @@ footer {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .edu-card {
+    padding: 16px; /* Slightly reduced padding for mobile */
+    border-radius: 10px; /* Slightly smaller border radius */
+    margin: 8px 0; /* Adds vertical spacing between cards */
+  }
+  
+  .edu-card h4 {
+    font-size: 1.1rem; /* Slightly smaller font for mobile */
+    margin-bottom: 6px;
+  }
+  
+  .edu-card p {
+    font-size: 0.95rem; /* Slightly smaller paragraph text */
+    margin-bottom: 4px;
+  }
+}
