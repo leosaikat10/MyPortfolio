@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personal Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
@@ -19,10 +19,11 @@
   </nav>
    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
 </header>
-  <section  class="hero">
+  <section class="hero">
     <img src="Screenshot (13).png" alt="Profile Picture" />
     <h2>Hi, I'm Saikat</h2>
     <p>I'm a passionate web developer who loves building interactive and modern web applications.</p>
+    <a href="#projects" class="hero-cta"><i class="fas fa-rocket"></i> View My Work</a>
   </section>
   
   <section class="section" id="about">
@@ -73,8 +74,14 @@
       </div>
       <div class="card-content">
         <h4>Weather App</h4>
-        <p>A simple weather app that fetches live weather data.</p>
-        <a href="https://github.com/leosaikat10/WEATHERAPP" target="_blank" class="btn">View on GitHub</a>
+        <p>A simple weather app that fetches live weather data using a public API, with real-time updates and a clean UI.</p>
+        <div class="card-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">API</span>
+        </div>
+        <a href="https://github.com/leosaikat10/WEATHERAPP" target="_blank" class="btn"><i class="fab fa-github"></i> View on GitHub</a>
       </div>
     </div>
     <!-- Add more project cards here later -->
@@ -94,7 +101,11 @@
 
   <section class="section" id="contact">
     <h3 class="glass-title">Contact</h3>
-    <p>Feel free to reach out via email: <a href="mailto:your.email@example.com" style="color: var(--accent-color)">saikatbiswas24dev@gmail.com</a></p>
+    <p>Have a project in mind or just want to say hi? My inbox is always open.</p>
+    <a href="mailto:saikatbiswas24dev@gmail.com" class="contact-box">
+      <i class="fas fa-envelope"></i>
+      <span>saikatbiswas24dev@gmail.com</span>
+    </a>
   </section>
  <footer>
   <p>&copy; 2025 Saikat Biswas. All rights reserved.</p>
