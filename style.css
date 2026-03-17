@@ -345,6 +345,53 @@ nav a:hover::after {
   line-height: 1.8;
 }
 
+/* ── Typewriter line ── */
+.hero-typewriter-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  font-weight: 600;
+  margin-bottom: 10px;
+  min-height: 2.2rem;
+}
+
+.hero-prefix {
+  color: var(--text-secondary);
+}
+
+#typewriter {
+  background: linear-gradient(135deg, var(--cyan-bright), #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.01em;
+}
+
+.typewriter-cursor {
+  color: var(--cyan-bright);
+  font-weight: 300;
+  margin-left: 2px;
+  animation: blink 0.75s step-end infinite;
+  -webkit-text-fill-color: var(--cyan-bright);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.hero-sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 28px !important;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* CTA Button in Hero */
 .hero-cta {
   display: inline-flex;
@@ -589,6 +636,33 @@ nav a:hover::after {
 }
 
 /* ============================================
+   SKILLS — Category Labels
+   ============================================ */
+.skills-category-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 36px;
+  margin-bottom: 0;
+  padding-left: 4px;
+  position: relative;
+}
+
+.skills-category-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 28px;
+  height: 2px;
+  background: var(--cyan-bright);
+  border-radius: 2px;
+}
+
+/* ============================================
    SKILLS GRID
    ============================================ */
 .skills-grid {
@@ -605,6 +679,7 @@ nav a:hover::after {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+
   padding: 20px 16px;
   background: var(--bg-card);
   border: 1px solid var(--border-card);
@@ -612,6 +687,43 @@ nav a:hover::after {
   transition: all var(--transition-base);
   cursor: default;
   width: 100%;
+}
+
+.skill span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  text-align: center;
+  transition: color var(--transition-fast);
+}
+
+.skill:hover span {
+  color: var(--cyan-bright);
+}
+
+/* MERN highlight accent */
+.mern-grid {
+  grid-template-columns: repeat(4, minmax(100px, 160px));
+  justify-content: start;
+}
+
+.skill.mern {
+  border-color: rgba(0, 245, 255, 0.22);
+}
+
+.skill.mern:hover {
+  border-color: var(--cyan-bright);
+  background: rgba(0, 245, 255, 0.07);
+}
+
+/* Express.js icon: invert on dark bg so it's visible */
+.express-icon {
+  filter: invert(1) brightness(0.9) !important;
+}
+
+.light-theme .express-icon {
+  filter: invert(0) brightness(0.3) !important;
 }
 
 .skill:hover {

@@ -22,7 +22,10 @@
   <section class="hero">
     <img src="Screenshot (13).png" alt="Profile Picture" />
     <h2>Hi, I'm Saikat</h2>
-    <p>I'm a passionate web developer who loves building interactive and modern web applications.</p>
+    <p class="hero-typewriter-line">
+      <span class="hero-prefix">I'm a&nbsp;</span><span id="typewriter"></span><span class="typewriter-cursor">|</span>
+    </p>
+    <p class="hero-sub">Passionate about building beautiful, fast &amp; user-friendly web experiences.</p>
     <a href="#projects" class="hero-cta"><i class="fas fa-rocket"></i> View My Work</a>
   </section>
   
@@ -88,13 +91,35 @@
   </div>
 </section>
 <section class="section" id="skills">
-  <h3 class="glass-title">Languages & Technologies</h3>
+  <h3 class="glass-title">Languages &amp; Technologies</h3>
+
+  <p class="skills-category-label">Core Languages</p>
   <div class="skills-grid">
-    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"></div>
-    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
-    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
-    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"></div>
-    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"><span>HTML5</span></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"><span>CSS3</span></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"><span>C</span></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
+  </div>
+
+  <p class="skills-category-label">MERN Stack</p>
+  <div class="skills-grid mern-grid">
+    <div class="skill mern">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+      <span>MongoDB</span>
+    </div>
+    <div class="skill mern">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js" class="express-icon">
+      <span>Express.js</span>
+    </div>
+    <div class="skill mern">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+      <span>React</span>
+    </div>
+    <div class="skill mern">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+      <span>Node.js</span>
+    </div>
   </div>
 </section>
 
@@ -154,10 +179,8 @@
 
   function revealTitles() {
     const triggerBottom = window.innerHeight * 0.85;
-
     titles.forEach(title => {
       const titleTop = title.getBoundingClientRect().top;
-
       if (titleTop < triggerBottom) {
         title.style.opacity = '1';
         title.style.transform = 'translateY(0)';
@@ -166,7 +189,51 @@
   }
 
   window.addEventListener('scroll', revealTitles);
-  revealTitles(); // trigger on load too
+  revealTitles();
+
+  /* ── Typewriter Effect ── */
+  const roles = [
+    'Full Stack Developer',
+    'MERN Stack Developer',
+    'Open Source Contributor',
+    'Problem Solver'
+  ];
+
+  const typeEl   = document.getElementById('typewriter');
+  const cursor   = document.querySelector('.typewriter-cursor');
+  let roleIndex  = 0;
+  let charIndex  = 0;
+  let isDeleting = false;
+  let typingSpeed = 90;
+
+  function type() {
+    const currentRole = roles[roleIndex];
+
+    if (isDeleting) {
+      typeEl.textContent = currentRole.substring(0, charIndex - 1);
+      charIndex--;
+      typingSpeed = 45;
+    } else {
+      typeEl.textContent = currentRole.substring(0, charIndex + 1);
+      charIndex++;
+      typingSpeed = 90;
+    }
+
+    if (!isDeleting && charIndex === currentRole.length) {
+      // Pause at end of word
+      typingSpeed = 1800;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex  = (roleIndex + 1) % roles.length;
+      typingSpeed = 400;
+    }
+
+    setTimeout(type, typingSpeed);
+  }
+
+  // Start after a short delay so the hero animates in first
+  setTimeout(type, 900);
 
 </script>
 </body>
